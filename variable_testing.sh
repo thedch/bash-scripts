@@ -16,3 +16,7 @@
 
 # Print a random word that is the length passed in as the first argument from the user
 # cat /usr/share/dict/words | grep -x ".\{${1},${1}\}" | sed -n "${RANDOM}p"
+
+# Prepend the date to the filename given in the first argument
+# DATE=`date +%Y-%m-%d`
+# mv $1 "${DATE}_${1}"
