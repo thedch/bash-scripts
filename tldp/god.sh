@@ -9,9 +9,15 @@ if [ -z "$1" ]; then
   exit 1
 fi
 
+filename=${1}.sh
+
 # Future work: detect and react to .sh at the end of $1
 
-filename=${1}.sh
+if [ -f $filename ]; then # Quit if file already exists
+  echo "File already exists!"
+  exit 1
+fi
+
 touch $filename # Create the file
 chmod 700 $filename # Give myself permissions
 
