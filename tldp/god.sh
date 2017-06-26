@@ -5,22 +5,20 @@
 # Script creates a file and sets that file to be executable by its owner
 
 if [ -z "$1" ]; then
-  echo "Usage ./chmod.sh [filename] (no extension needed)"
+  echo "Usage $0 [filename] (no extension needed)"
   exit 1
 fi
+
+# Future work: detect and react to .sh at the end of $1
 
 filename=${1}.sh
 touch $filename # Create the file
 chmod 700 $filename # Give myself permissions
 
-BANG="#!/bin/bash"
-NAME="Author: Daniel Hunter"
-DATE=`date +%m-%d-%Y`
-
 cat >$filename <<EOL
-$BANG
-$NAME
-$DATE
+#!/bin/bash
+# Author: $USER
+# `date +%m-%d-%Y`
 EOL
 
 atom $filename
