@@ -6,7 +6,7 @@ planets=( Mercury Venus Earth Mars Jupiter Saturn Uranus Neptune Pluto )
 
 i=0
 until [ $i -gt 8 ]; do # alternatively: while [ $i -lt 9 ]; do
-  echo ${planets[i]}
+  echo "${planets[i]}"
   (( i++ ))
 done
 

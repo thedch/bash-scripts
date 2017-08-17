@@ -13,18 +13,18 @@ filename=${1}.sh
 
 # Future work: detect and react to .sh at the end of $1
 
-if [ -f $filename ]; then # Quit if file already exists
+if [ -f "$filename" ]; then # Quit if file already exists
   echo "File already exists!"
   exit 1
 fi
 
-touch $filename # Create the file
-chmod 700 $filename # Give myself permissions
+touch "$filename" # Create the file
+chmod 700 "$filename" # Give myself permissions
 
-cat >$filename <<EOL
+cat >"$filename" <<EOL
 #!/bin/bash
 # Author: $USER
-# `date +%m-%d-%Y`
+# $(date +%m-%d-%Y)
 EOL
 
-atom $filename
+atom "$filename"

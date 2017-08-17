@@ -6,7 +6,7 @@ DIRNAME=/usr/bin
 FILETYPE="shell script"
 LOGFILE=logfile
 
-file "$DIRNAME"/* | fgrep "$FILETYPE" | tee $LOGFILE | wc -l
+file "$DIRNAME"/* | grep -F "$FILETYPE" | tee $LOGFILE | wc -l
 
 # Scans all files in /usr/bin
 # Sends the output of that to fgrep, which searches for everything containing the
