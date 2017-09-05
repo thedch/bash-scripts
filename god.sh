@@ -24,7 +24,7 @@ chmod 700 "$filename" # give myself permissions
 cat >"$filename" <<EOL
 #!/bin/bash
 # Author: $USER
-# $(date +%m-%d-%Y)
+# $(date "+%B %d %Y")
 EOL
 
 atom "$filename"
