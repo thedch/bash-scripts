@@ -2,6 +2,11 @@
 # Author: daniel.hunter
 # 08-12-2017
 
+if [ -z $1 ]; then
+  echo "Please supply a user to log in as!"
+  exit 
+fi
+
 echo "Scanning for devices..."
 while true; do
   arp -a | grep "\[bridge]"
@@ -12,5 +17,4 @@ while true; do
 done
 
 echo "Found the device, connecting..."
-ssh pi@"$(arp -a | grep "\[bridge]" | awk FNR==1'{print $2}' | tr -d '()')"
-
+ssh -X "$1"@"$(arp -a | grep "\[bridge]" | awk FNR==1'{print $2}' | tr -d '()')"
