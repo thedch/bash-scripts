@@ -8,8 +8,9 @@ if [ -z $1 ]; then
 fi
 
 echo "Scanning for devices..."
+
 while true; do
-  arp -a | grep "\[bridge]"
+  arp -a | grep "bridge" | grep -v "ff:ff"
   if [ $? -eq 0 ]; then
       break
   fi
@@ -17,4 +18,4 @@ while true; do
 done
 
 echo "Found the device, connecting..."
-ssh -X "$1"@"$(arp -a | grep "\[bridge]" | awk FNR==1'{print $2}' | tr -d '()')"
+ssh -X "$1"@"$(arp -a | grep "\[bridge]" | grep -v "ff:ff" | awk FNR==1'{print $2}' | tr -d '()')"
