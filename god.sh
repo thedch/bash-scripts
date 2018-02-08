@@ -27,4 +27,4 @@ cat >"$filename" <<EOL
 # $(date "+%B %d %Y")
 EOL
 
-atom "$filename"
+subl "$filename"
