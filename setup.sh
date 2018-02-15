@@ -11,4 +11,4 @@ echo "What files would you like? Please enter the filename. Example: '.vimrc'"
 
 read filename
 
-echo curl "${base_url}""${filename}" > ~/"${filename}"
+curl "${base_url}""${filename}" > ~/"${filename}"
