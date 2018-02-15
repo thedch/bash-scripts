@@ -7,7 +7,8 @@
 
 base_url="https://raw.githubusercontent.com/thedch/dot-files/master/"
 
-for file in .bashrc .bash_aliases .vimrc .gitconfig .gitignore_global
-do
-    curl ${base_url}${file} > ${file}
-done
+echo "What files would you like? Please enter the filename. Example: '.vimrc'"
+
+read filename
+
+echo curl "${base_url}""${filename}" > ~/"${filename}"
