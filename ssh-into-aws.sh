@@ -39,7 +39,7 @@ echo 'Waiting a few seconds to ensure full startup...'
 sleep 5 # Sleep while the instance boots
 
 # # SSH into the instance
-ssh -L localhost:8888:localhost:8888 -i ~/.ssh/aws-key-fast-ai.pem $user@"$instanceIp"
+ssh -L 8888:localhost:8888 -i ~/.ssh/aws-key-fast-ai.pem $user@"$instanceIp"
 
 # When the SSH command finishes, shut down the instance
 aws ec2 stop-instances --instance-ids $instanceId
