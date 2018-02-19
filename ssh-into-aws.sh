@@ -3,7 +3,7 @@
 # February 06 2018
 
 if [ "$#" -ne 1 ]; then
-        echo "$0: [ERROR] Please provide t2, p2, or car as an argument."
+        echo "[ERROR] Please provide t2, p2, or car as an argument."
         exit 3
 fi
 
