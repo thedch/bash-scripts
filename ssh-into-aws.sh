@@ -2,6 +2,8 @@
 # Author: daniel
 # February 06 2018
 
+T="$(date +%s)"
+
 if [ "$#" -ne 1 ]; then
         echo "[ERROR] Please provide t2, p2, or car as an argument."
         exit 3
@@ -43,3 +45,7 @@ ssh -L 8888:localhost:8888 -i ~/.ssh/aws-key-fast-ai.pem $user@"$instanceIp"
 
 # When the SSH command finishes, shut down the instance
 aws ec2 stop-instances --instance-ids $instanceId
+
+T="$(($(date +%s)-T))"
+M="$((T/60))"
+echo "Time Elapsed: ${M} Minutes"
