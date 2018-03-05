@@ -2,7 +2,7 @@
 # Useful for quickly setting up AWS / GCE / general VMs
 #
 # In order to run the script itself:
-# curl https://danielhunter.io/static/setup.sh > ./setup.sh
+# curl https://raw.githubusercontent.com/thedch/bash-scripts/master/setup.sh > ./setup.sh
 #
 
 base_url="https://raw.githubusercontent.com/thedch/dot-files/master/"
