@@ -2,7 +2,7 @@
 # Useful for quickly setting up AWS / GCE / general VMs
 #
 # In order to download the script:
-# curl -L setup.thedaniel.me > ./setup.sh && chmod 700 ./setup.sh && ./setup.sh
+# wget setup.thedaniel.me > ./setup.sh && chmod 700 ./setup.sh && ./setup.sh
 #
 
 base_url="https://raw.githubusercontent.com/thedch/dot-files/master/"
