@@ -13,7 +13,7 @@ read filename
 
 # Check if file already exists locally
 if [ -f ~/${filename} ]; then
-    read -p "File already exists -- would you like to overwrite it? " -n 1 -r
+    read -p "File already exists -- press y to append or n to exit. " -n 1 -r
     echo
     if [[ ! $REPLY =~ ^[Yy]$ ]]
     then
@@ -34,4 +34,4 @@ fi
 
 # If everything has worked, download the file and save it
 echo "Downloading file..."
-curl --silent "${base_url}""${filename}" > ~/"${filename}"
+curl --silent "${base_url}""${filename}" >> ~/"${filename}"
