@@ -5,7 +5,7 @@
 # Script creates a file and sets that file to be executable by its owner
 
 if [ -z "$1" ]; then
-  echo "ERROR: Usage $0 [filename] (no extension needed)"
+  echo "ERROR: Usage $0 [filename] (no extension needed, .sh is added automatically)"
   exit 1
 fi
 
@@ -27,4 +27,4 @@ cat >"$filename" <<EOL
 # $(date "+%B %d %Y")
 EOL
 
-subl "$filename"
+vim  "$filename"
