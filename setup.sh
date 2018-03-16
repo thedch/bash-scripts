@@ -13,7 +13,7 @@ read filename
 
 # Check if file already exists locally
 if [ -f ~/${filename} ]; then
-    read -p "File already exists -- press y to overwrite or n to exit. " -n 1 -r
+    read -p "File already exists -- press y to create a backup or n to exit. " -n 1 -r
     echo
     if [[ ! $REPLY =~ ^[Yy]$ ]]
     then
@@ -28,9 +28,15 @@ respCode=$(curl --head "${base_url}""${filename}" | grep HTTP | awk '{print $2}'
 # echo Your response code was $respCode
 
 if [ "$respCode" -ne "200" ]; then
-    echo 'Response code was not 200, did you make a typo?'
+    echo "Response code was not 200, did you make a typo?"
     [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
 fi
+
+# Only create a backup after you've checked the server
+if [ -f ~/${filename} ]; then
+    echo "Moving $filename to $filename.bak before downloading new version"
+    cp $filename $filename.bak
+fi   
 
 # If everything has worked, download the file and save it
 echo "Downloading file..."
