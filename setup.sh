@@ -35,7 +35,7 @@ fi
 # Only create a backup after you've checked the server
 if [ -f ~/${filename} ]; then
     echo "Moving $filename to $filename.bak before downloading new version"
-    cp $filename $filename.bak
+    cp ~/"$filename" ~/"$filename".bak
 fi   
 
 # If everything has worked, download the file and save it
