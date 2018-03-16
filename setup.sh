@@ -13,9 +13,9 @@ read filename
 
 # Check if file already exists locally
 if [ -f ~/${filename} ]; then
-    read -p "File already exists -- press y to create a backup or n to exit. " -n 1 -r
+    echo "File already exists -- enter y to create a backup or n to exit." && read input
     echo
-    if [[ ! $REPLY =~ ^[Yy]$ ]]
+    if [[ ! $input =~ ^[Yy]$ ]]
     then
         echo "Exiting without overwriting..."
         [[ "$0" = "$BASH_SOURCE" ]] && exit 1 || return 1 # handle exits from shell or function but don't exit interactive shell
