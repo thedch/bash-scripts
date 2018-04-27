@@ -49,7 +49,7 @@ aws ec2 wait instance-running --instance-ids $instanceId && \
 instanceIp=$(aws ec2 describe-instances --filters "Name=instance-id,Values=$instanceId" --query "Reservations[0].Instances[0].PublicIpAddress")
 
 echo 'Waiting a few seconds to ensure full startup...'
-sleep 5 # Sleep while the instance boots just in case it didn't fully
+sleep 10 # Sleep while the instance boots just in case it didn't fully
 
 # SSH into the instance
 ssh -L 8888:localhost:8888 -i ~/.ssh/aws-key-fast-ai.pem "$user"@"$instanceIp"
