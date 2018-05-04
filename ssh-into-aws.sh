@@ -2,13 +2,6 @@
 # Author: Daniel Hunter
 # February 06 2018
 
-##
-# Instructions: Everywhere there is an instanceID, change it to be an instanceID
-# of your own (get from AWS console). I have three different instances I use
-# frequently, so I have three different arguments. You can have as many or as few
-# as you like.
-##
-
 T="$(date +%s)" # get current time to use later
 
 if [ "$#" -ne 1 ]; then
